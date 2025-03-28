@@ -1,5 +1,9 @@
 -- Custom behaviours for Neovim
 
+-- Enable line wrapping with visual indentation
+vim.opt.wrap = true
+vim.opt.breakindent = true
+
 -- Auto-update plugins when changing directory
 vim.api.nvim_create_autocmd("DirChanged", {
   pattern = "*",
@@ -11,4 +15,10 @@ vim.api.nvim_create_autocmd("DirChanged", {
     
     -- You can add other plugins that need directory updates here
   end,
+})
+
+-- Auto-equalize window sizes when Vim is resized
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = "*",
+  command = "tabdo windo wincmd =",
 })

@@ -29,3 +29,6 @@ vim.cmd('silent! colorscheme tokyonight')
 
 -- Load keybindings
 require("keybinds")
+
+-- Load custom behaviours
+require("behaviour")

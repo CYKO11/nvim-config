@@ -4,6 +4,10 @@
 vim.opt.wrap = true
 vim.opt.breakindent = true
 
+-- Set white border for active window
+vim.opt.winhl = "WinSeparator:WinSeparator"
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "white" })
+
 -- Auto-update plugins when changing directory
 vim.api.nvim_create_autocmd("DirChanged", {
   pattern = "*",

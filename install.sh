@@ -23,7 +23,7 @@ fi
 
 # Clone the repository
 echo "Cloning Neovim configuration..."
-git clone https://github.com/liam/nvim-config.git /tmp/nvim-config
+git clone https://github.com/CYKO11/nvim-config.git /tmp/nvim-config
 
 # Ensure .config directory exists
 mkdir -p "$HOME/.config"

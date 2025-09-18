@@ -31,19 +31,5 @@ return {
       },
     }
     
-    -- Create autocmd group for nvim-tree
-    local nvimtree_group = vim.api.nvim_create_augroup("NvimTreeGroup", { clear = true })
-    
-    -- Auto open nvim-tree when nvim starts (using the newer API)
-    vim.api.nvim_create_autocmd({ "VimEnter" }, {
-      callback = function()
-        require("nvim-tree.api").tree.toggle({ focus = true })
-        -- Ensure focus is moved to the tree window
-        vim.defer_fn(function()
-          vim.cmd("NvimTreeFocus")
-        end, 10)
-      end,
-      group = nvimtree_group,
-    })
   end
 }

@@ -3,9 +3,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Map Ctrl+S to save in normal, insert, and visual modes
-vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true, desc = "Save file" })
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { silent = true, desc = "Save file" })
-vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { silent = true, desc = "Save file" })
+-- vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true, desc = "Save file" })
+-- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { silent = true, desc = "Save file" })
+-- vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { silent = true, desc = "Save file" })
 
 -- Map space+e to toggle nvim-tree
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { silent = true, desc = "Toggle NvimTree" })

@@ -23,6 +23,13 @@ vim.opt.smartindent = true
 
 -- Load all plugins from the lua/plugins directory
 require("lazy").setup("plugins")
+require("tokyonight").setup {
+    transparent = true,
+    styles = {
+       sidebars = "transparent",
+       floats = "transparent",
+    }
+}
 
 -- Color schemes should be loaded after plugins
 vim.cmd('silent! colorscheme tokyonight')

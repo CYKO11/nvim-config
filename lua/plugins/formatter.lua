@@ -1,6 +1,6 @@
 return {
   {
-    'stevearc/conform.nvim',
+   'stevearc/conform.nvim',
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require('conform').setup({
@@ -12,8 +12,9 @@ return {
           css = { "prettier" },
           json = { "prettier" },
           markdown = { "prettier" },
+          lua = { "stylua" },
         },
-        format_on_save = false, -- Disable auto-format on save
+        format_on_save = true, -- Disable auto-format on save
         formatters = {
           prettier = {
             prepend_args = { "--tab-width", "2" },

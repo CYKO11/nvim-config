@@ -2,6 +2,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Map leader+q to Escape
+vim.keymap.set('i', '<leader>q', '<Esc>', { silent = true, desc = "Exit insert mode" })
+vim.keymap.set('v', '<leader>q', '<Esc>', { silent = true, desc = "Exit visual mode" })
+
 -- Map Ctrl+S to save in normal, insert, and visual modes
 -- vim.keymap.set('n', '<C-s>', ':w<CR>', { silent = true, desc = "Save file" })
 -- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { silent = true, desc = "Save file" })
@@ -41,3 +45,7 @@ vim.keymap.set('n', '<leader>a', '<C-w>h', { silent = true, desc = "Move to left
 vim.keymap.set('n', '<leader>s', '<C-w>j', { silent = true, desc = "Move to window below" })
 vim.keymap.set('n', '<leader>d', '<C-w>l', { silent = true, desc = "Move to right window" })
 vim.keymap.set('n', '<leader>w', '<C-w>k', { silent = true, desc = "Move to window above" })
+
+-- Clear search highlights with leader+Esc
+vim.keymap.set('n', '<leader><Esc>', ':nohlsearch<CR>', { silent = true, desc = "Clear search highlights" })
+

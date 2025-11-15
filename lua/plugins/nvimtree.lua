@@ -29,6 +29,9 @@ return {
           },
         },
       },
+      filters = {
+        dotfiles = false,  -- Show dotfiles including .env
+      },
     }
     
   end

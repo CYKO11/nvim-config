@@ -24,6 +24,14 @@ return {
         lualine_y = {},
         lualine_z = {}
       },
+      tabline = {
+        lualine_a = { 'tabs' },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
     }
   end
 }

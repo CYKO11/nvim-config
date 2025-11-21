@@ -21,22 +21,12 @@ return {
     vim.keymap.set('n', "<leader>g", '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
 
     -- Search grep with selected text
-    vim.keymap.set('v', "<leader>G", function()
-      -- Get the visual selection
-      local start_pos = vim.fn.getpos("'<")
-      local end_pos = vim.fn.getpos("'>")
-      local lines = vim.fn.getline(start_pos[2], end_pos[2])
+    vim.keymap.set('v', "<leader>g", function()
+      -- Yank the visual selection to the unnamed register
+      vim.cmd('normal! "vy')
 
-      -- Handle single line selection
-      if #lines == 1 then
-        lines[1] = string.sub(lines[1], start_pos[3], end_pos[3])
-      else
-        -- Handle multi-line selection
-        lines[1] = string.sub(lines[1], start_pos[3])
-        lines[#lines] = string.sub(lines[#lines], 1, end_pos[3])
-      end
-
-      local selected_text = table.concat(lines, "\n")
+      -- Get the yanked text
+      local selected_text = vim.fn.getreg('v')
 
       -- Open Telescope live_grep with selected text as default
       require('telescope.builtin').live_grep({ default_text = selected_text })

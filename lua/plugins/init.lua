@@ -11,6 +11,7 @@ return {
 	require("plugins.toggleterm"),
 	require("plugins.nvimtree"),
 	require("plugins.indentblankline"),
+	require("plugins.cursor-indicator"),
 	-- Load all colorschemes
 	unpack(require("plugins.colorschemes")),
 }

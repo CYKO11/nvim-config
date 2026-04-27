@@ -27,7 +27,15 @@ vim.opt.smartindent = true
 vim.opt.title = true
 vim.opt.titlestring = ">> %{fnamemodify(getcwd(), ':t')} <<"
 
--- Load all plugins from the lua/plugins directory
+-- tmux specific window naming
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+vim.fn.system('tmux rename-window "NVIM: ' .. project_name .. '"')
+vim.api.nvim_create_autocmd("VimLeave", {
+	callback = function()
+		vim.fn.system("tmux set-window-option automatic-rename on")
+	end,
+})
+
 require("lazy").setup("plugins")
 require("tokyonight").setup({
 	transparent = true,
@@ -39,9 +47,14 @@ require("tokyonight").setup({
 
 -- Color schemes should be loaded after plugins
 vim.cmd("silent! colorscheme tokyonight")
+-- vim.cmd("silent! colorscheme ashen")
 -- vim.cmd("silent! colorscheme monoglow")
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+require("notify").setup({
+	background_colour = "#000000",
+})
 
 -- require("lspconfig").vtsls.setup({})
 

@@ -66,15 +66,11 @@ vim.keymap.set("n", "<leader>s", 'y/<C-r>"<CR>', { desc = "Search for selection"
 vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { silent = true, desc = "Clear search highlights" })
 
 -- Tab navigation with Alt+[a/d]
-vim.keymap.set("n", "<A-a>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("n", "<A-d>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
-vim.keymap.set("i", "<A-a>", "<Esc>:tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("i", "<A-d>", "<Esc>:tabnext<CR>", { silent = true, desc = "Go to next tab" })
-vim.keymap.set("v", "<A-a>", "<Esc>:tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("v", "<A-d>", "<Esc>:tabnext<CR>", { silent = true, desc = "Go to next tab" })
+vim.keymap.set("n", "<A-S-a>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
+vim.keymap.set("n", "<A-S-d>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
 
 -- Create new tab with Alt+Shift+N
-vim.keymap.set("n", "<A-n>", ":tabnew<CR>", { silent = true, desc = "Create new tab" })
+vim.keymap.set("n", "<A-S-n>", ":tabnew<CR>", { silent = true, desc = "Create new tab" })
 
 -- Navigate to specific tabs with Alt+[yuiop[]]
 vim.keymap.set("n", "<A-y>", ":tabn 1<CR>", { silent = true, desc = "Go to tab 1" })
@@ -89,4 +85,4 @@ vim.keymap.set("n", "<A-]>", ":tabn 7<CR>", { silent = true, desc = "Go to tab 7
 vim.keymap.set("n", "<A-e>", ":terminal<CR>", { silent = true, desc = "Open terminal" })
 
 -- Exit terminal mode with Alt+Esc
-vim.keymap.set("t", "<A-e>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mode" })
+vim.keymap.set("t", "<A-q>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mode" })

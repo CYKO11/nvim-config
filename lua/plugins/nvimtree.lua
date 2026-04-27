@@ -32,9 +32,9 @@ return {
 			git = {
 				ignore = false, -- If set to false, gitignored files will be shown
 			},
-			filters = {
-				dotfiles = true, -- Show dotfiles including .env
-			},
+			-- filters = {
+			-- 	dotfiles = true, -- Show dotfiles including .env
+			-- },
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 

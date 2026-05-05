@@ -1,57 +1,82 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons", -- optional
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		local width = 0.8
-		local height = 0.8
 		local screen_w = vim.opt.columns:get()
 		local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-		local window_w = screen_w * width
-		local window_h = screen_h * height
-		local window_w_int = math.floor(window_w)
-		local window_h_int = math.floor(window_h)
-		local center_x = (screen_w - window_w) / 2
-		local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+		local w = math.floor(screen_w * 0.8)
+		local h = math.floor(screen_h * 0.8)
+		local col = (screen_w - w) / 2
+		local row = ((vim.opt.lines:get() - h) / 2) - vim.opt.cmdheight:get()
 
-		require("nvim-tree").setup({
+		local shared = {
+			git = { ignore = false },
+			on_attach = function(bufnr)
+				local api = require("nvim-tree.api")
+				api.config.mappings.default_on_attach(bufnr)
+				local function opts(desc)
+					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+				end
+				vim.keymap.set("n", "<C-[>", api.tree.change_root_to_parent, opts("Up"))
+			end,
+		}
+
+		local float_config = vim.tbl_deep_extend("force", shared, {
 			view = {
 				float = {
 					enable = true,
 					open_win_config = {
 						relative = "editor",
 						border = "rounded",
-						width = window_w_int,
-						height = window_h_int,
-						row = center_y,
-						col = center_x,
+						width = w,
+						height = h,
+						row = row,
+						col = col,
 					},
 				},
 			},
-			git = {
-				ignore = false, -- If set to false, gitignored files will be shown
-			},
-			-- filters = {
-			-- 	dotfiles = true, -- Show dotfiles including .env
-			-- },
-			on_attach = function(bufnr)
-				local api = require("nvim-tree.api")
-
-				-- Default mappings
-				api.config.mappings.default_on_attach(bufnr)
-
-				-- Custom mappings
-				local function opts(desc)
-					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-				end
-
-				-- Ctrl+[ to go up one directory level
-				vim.keymap.set("n", "<C-[>", api.tree.change_root_to_parent, opts("Up"))
-
-				-- Ctrl+] to enter/open directory
-				-- vim.keymap.set('n', '<C-]>', api.node.open.edit, opts('Open'))
-			end,
 		})
+
+		local side_config = vim.tbl_deep_extend("force", shared, {
+			view = {
+				float = { enable = false },
+				width = 35,
+				side = "left",
+			},
+		})
+
+		-- Start with float as default (preserves existing leader+e behavior)
+		require("nvim-tree").setup(float_config)
+
+		local current_mode = "float"
+
+		local function toggle_as(mode)
+			local api = require("nvim-tree.api")
+			local visible = api.tree.is_visible()
+
+			if visible and current_mode == mode then
+				api.tree.close()
+				return
+			end
+
+			if visible then
+				api.tree.close()
+			end
+
+			if mode == "float" then
+				require("nvim-tree").setup(float_config)
+				current_mode = "float"
+			else
+				require("nvim-tree").setup(side_config)
+				current_mode = "side"
+			end
+
+			api.tree.open()
+		end
+
+		vim.keymap.set("n", "<leader>e", function() toggle_as("float") end, { silent = true, desc = "Toggle NvimTree (float)" })
+		vim.keymap.set("n", "<leader>t", function() toggle_as("side") end, { silent = true, desc = "Toggle NvimTree (side)" })
 	end,
 }

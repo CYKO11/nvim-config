@@ -11,9 +11,6 @@ vim.keymap.set("v", "<leader>q", "<Esc>", { silent = true, desc = "Exit visual m
 -- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { silent = true, desc = "Save file" })
 -- vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { silent = true, desc = "Save file" })
 
--- Map space+e to toggle nvim-tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
-
 -- Format code with leader+i
 vim.keymap.set("n", "<leader>i", function()
 	require("conform").format({ lsp_fallback = true })
@@ -81,7 +78,6 @@ vim.keymap.set("n", "<A-p>", ":tabn 5<CR>", { silent = true, desc = "Go to tab 5
 vim.keymap.set("n", "<A-[>", ":tabn 6<CR>", { silent = true, desc = "Go to tab 6" })
 vim.keymap.set("n", "<A-]>", ":tabn 7<CR>", { silent = true, desc = "Go to tab 7" })
 
--- Open terminal with leader+t
 vim.keymap.set("n", "<A-e>", ":terminal<CR>", { silent = true, desc = "Open terminal" })
 
 -- Exit terminal mode with Alt+Esc

@@ -23,6 +23,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
+-- Hide the top tab bar
+vim.opt.showtabline = 0
+
 -- Set window title to current folder name
 vim.opt.title = true
 vim.opt.titlestring = ">> %{fnamemodify(getcwd(), ':t')} <<"

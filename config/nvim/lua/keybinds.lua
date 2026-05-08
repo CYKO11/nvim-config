@@ -63,20 +63,20 @@ vim.keymap.set("n", "<leader>s", 'y/<C-r>"<CR>', { desc = "Search for selection"
 vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { silent = true, desc = "Clear search highlights" })
 
 -- Tab navigation with Alt+[a/d]
-vim.keymap.set("n", "<A-S-a>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("n", "<A-S-d>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
+-- vim.keymap.set("n", "<A-S-a>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
+-- vim.keymap.set("n", "<A-S-d>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
 
 -- Create new tab with Alt+Shift+N
-vim.keymap.set("n", "<A-S-n>", ":tabnew<CR>", { silent = true, desc = "Create new tab" })
+-- vim.keymap.set("n", "<A-S-n>", ":tabnew<CR>", { silent = true, desc = "Create new tab" })
 
 -- Navigate to specific tabs with Alt+[yuiop[]]
-vim.keymap.set("n", "<A-y>", ":tabn 1<CR>", { silent = true, desc = "Go to tab 1" })
-vim.keymap.set("n", "<A-u>", ":tabn 2<CR>", { silent = true, desc = "Go to tab 2" })
-vim.keymap.set("n", "<A-i>", ":tabn 3<CR>", { silent = true, desc = "Go to tab 3" })
-vim.keymap.set("n", "<A-o>", ":tabn 4<CR>", { silent = true, desc = "Go to tab 4" })
-vim.keymap.set("n", "<A-p>", ":tabn 5<CR>", { silent = true, desc = "Go to tab 5" })
-vim.keymap.set("n", "<A-[>", ":tabn 6<CR>", { silent = true, desc = "Go to tab 6" })
-vim.keymap.set("n", "<A-]>", ":tabn 7<CR>", { silent = true, desc = "Go to tab 7" })
+-- vim.keymap.set("n", "<A-y>", ":tabn 1<CR>", { silent = true, desc = "Go to tab 1" })
+-- vim.keymap.set("n", "<A-u>", ":tabn 2<CR>", { silent = true, desc = "Go to tab 2" })
+-- vim.keymap.set("n", "<A-i>", ":tabn 3<CR>", { silent = true, desc = "Go to tab 3" })
+-- vim.keymap.set("n", "<A-o>", ":tabn 4<CR>", { silent = true, desc = "Go to tab 4" })
+-- vim.keymap.set("n", "<A-p>", ":tabn 5<CR>", { silent = true, desc = "Go to tab 5" })
+-- vim.keymap.set("n", "<A-[>", ":tabn 6<CR>", { silent = true, desc = "Go to tab 6" })
+-- vim.keymap.set("n", "<A-]>", ":tabn 7<CR>", { silent = true, desc = "Go to tab 7" })
 
 vim.keymap.set("n", "<A-e>", ":terminal<CR>", { silent = true, desc = "Open terminal" })
 

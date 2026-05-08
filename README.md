@@ -1,11 +1,32 @@
-# Neovim Configuration
+# Dotfiles
 
-This is a modular Neovim configuration built with Lazy.nvim as the plugin manager.
+A multi-tool configuration repo. Each tool's config lives under its own subfolder in `config/` and can be installed independently.
 
-## Structure
+## Repo Structure
 
 ```
-~/.config/nvim/
+config/
+├── nvim/               # Neovim configuration (Lazy.nvim-based)
+│   ├── init.lua
+│   ├── lazy-lock.json
+│   └── lua/
+│       ├── behaviour.lua
+│       ├── keybinds.lua
+│       └── plugins/
+├── kitty/              # Kitty terminal configuration
+└── tmux/               # tmux configuration
+```
+
+To add a new tool, create `config/<tool>/` and drop its files in.
+
+## Neovim Configuration
+
+A modular Neovim config built with Lazy.nvim as the plugin manager.
+
+### Layout
+
+```
+config/nvim/
 ├── init.lua            # Main configuration file
 ├── lazy-lock.json      # Plugin version lock file
 ├── lua/
@@ -18,6 +39,14 @@ This is a modular Neovim configuration built with Lazy.nvim as the plugin manage
 │       ├── nvimtree.lua
 │       └── ...         # Other plugin configs
 ```
+
+### Install
+
+```bash
+./nvim.sh
+```
+
+Copies `config/nvim/` to `~/.config/nvim` (backing up any existing config).
 
 ## Key Components
 
@@ -117,7 +146,7 @@ cargo install stylua
 
 ## Adding New Plugins
 
-Add a new file in the `lua/plugins/` directory following the Lazy.nvim format:
+Add a new file in the `config/nvim/lua/plugins/` directory following the Lazy.nvim format:
 
 ```lua
 return {

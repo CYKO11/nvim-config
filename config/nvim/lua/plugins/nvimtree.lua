@@ -13,6 +13,7 @@ return {
 
 		local shared = {
 			git = { ignore = false },
+			filters = { git_ignored = false },
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 				api.config.mappings.default_on_attach(bufnr)
@@ -76,7 +77,11 @@ return {
 			api.tree.open()
 		end
 
-		vim.keymap.set("n", "<leader>e", function() toggle_as("float") end, { silent = true, desc = "Toggle NvimTree (float)" })
-		vim.keymap.set("n", "<leader>t", function() toggle_as("side") end, { silent = true, desc = "Toggle NvimTree (side)" })
+		vim.keymap.set("n", "<leader>e", function()
+			toggle_as("float")
+		end, { silent = true, desc = "Toggle NvimTree (float)" })
+		vim.keymap.set("n", "<leader>t", function()
+			toggle_as("side")
+		end, { silent = true, desc = "Toggle NvimTree (side)" })
 	end,
 }

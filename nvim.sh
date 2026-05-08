@@ -22,15 +22,15 @@ if [ -d "$HOME/.config/nvim" ]; then
 fi
 
 # Clone the repository
-echo "Cloning Neovim configuration..."
+echo "Cloning configuration repository..."
 git clone git@github.com:CYKO11/nvim-config.git /tmp/nvim-config
 
 # Ensure .config directory exists
 mkdir -p "$HOME/.config"
 
-# Copy the configuration to .config/nvim
+# Copy the Neovim configuration to .config/nvim
 echo "Installing Neovim configuration..."
-cp -r /tmp/nvim-config "$HOME/.config/nvim"
+cp -r /tmp/nvim-config/config/nvim "$HOME/.config/nvim"
 
 # Clean up
 rm -rf /tmp/nvim-config

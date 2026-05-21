@@ -14,6 +14,10 @@ return {
 		local shared = {
 			git = { ignore = false },
 			filters = { git_ignored = false },
+			update_focused_file = {
+				enable = true,
+				update_root = false,
+			},
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 				api.config.mappings.default_on_attach(bufnr)
@@ -75,6 +79,7 @@ return {
 			end
 
 			api.tree.open()
+			api.tree.find_file({ focus = true })
 		end
 
 		vim.keymap.set("n", "<leader>e", function()

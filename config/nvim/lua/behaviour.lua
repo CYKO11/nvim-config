@@ -26,3 +26,13 @@ vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",
   command = "tabdo windo wincmd =",
 })
+
+-- Treat .env and .env.* files as sh so commentstring works (for Comment.nvim)
+vim.filetype.add({
+  filename = {
+    ['.env'] = 'sh',
+  },
+  pattern = {
+    ['%.env%..*'] = 'sh',
+  },
+})

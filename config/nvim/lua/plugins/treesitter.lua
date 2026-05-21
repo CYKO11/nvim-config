@@ -37,7 +37,7 @@ return {
 					additional_vim_regex_highlighting = false,
 				},
 
-				indent = { enable = true },
+				indent = { enable = true, disable = { "svelte" } },
 
 				-- Additional modules
 				incremental_selection = {

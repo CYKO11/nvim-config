@@ -1,0 +1,23 @@
+[desktop/wm/keybindings]
+minimize=@as []
+move-to-monitor-down=['<Control><Super>s']
+move-to-monitor-left=['<Control><Super>a']
+move-to-monitor-right=['<Control><Super>d']
+move-to-monitor-up=['<Control><Super>w']
+move-to-workspace-last=['<Shift><Super>x']
+move-to-workspace-left=['<Shift><Super>a']
+move-to-workspace-right=['<Shift><Super>d']
+switch-to-workspace-left=['<Super>a']
+switch-to-workspace-right=['<Super>d']
+
+[shell/keybindings]
+toggle-application-view=@as []
+
+[settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>Return'
+command='kitty'
+name='kitty'
+

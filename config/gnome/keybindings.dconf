@@ -1,10 +1,12 @@
 # GNOME keybindings — loaded via `dconf load /org/gnome/ < keybindings.dconf`.
-# Re-dump with:
+# Re-dump with `./apply.sh gnome` (writes a backup) or manually:
 #   dconf dump /org/gnome/desktop/wm/keybindings/ > ...
 #   dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > ...
 #   dconf dump /org/gnome/shell/keybindings/ > ...
+#   dconf dump /org/gnome/mutter/keybindings/ > ...
 
 [desktop/wm/keybindings]
+minimize=@as []
 move-to-monitor-down=['<Control><Super>s']
 move-to-monitor-left=['<Control><Super>a']
 move-to-monitor-right=['<Control><Super>d']
@@ -17,6 +19,10 @@ switch-to-workspace-right=['<Super>d']
 
 [shell/keybindings]
 toggle-application-view=@as []
+
+[mutter/keybindings]
+toggle-tiled-left=['<Super>Left', '<Super>h']
+toggle-tiled-right=['<Super>Right', '<Super>l']
 
 [settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']

@@ -54,6 +54,7 @@ apply_gnome() {
     {
         dump_section /org/gnome/desktop/wm/keybindings/        desktop/wm/keybindings
         dump_section /org/gnome/shell/keybindings/             shell/keybindings
+        dump_section /org/gnome/mutter/keybindings/            mutter/keybindings
         dump_section /org/gnome/settings-daemon/plugins/media-keys/ settings-daemon/plugins/media-keys
     } > "$backup"
 
